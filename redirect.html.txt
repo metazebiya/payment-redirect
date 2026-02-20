@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Redirecting...</title>
+
+  <script>
+    // Try to open your Android app
+    window.location.href = "yourapp://payment-return";
+
+    // Optional fallback after 2 seconds
+    setTimeout(function () {
+      document.getElementById("fallback").style.display = "block";
+    }, 2000);
+  </script>
+</head>
+
+<body style="text-align:center; font-family:sans-serif; margin-top:50px;">
+  <h2>Redirecting to app...</h2>
+  <p>If nothing happens, tap the button below.</p>
+
+  <div id="fallback" style="display:none;">
+    <a href="yourapp://payment-return">
+      <button style="padding:10px 20px; font-size:16px;">
+        Open App
+      </button>
+    </a>
+  </div>
+</body>
+</html>

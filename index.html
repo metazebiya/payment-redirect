@@ -3,21 +3,28 @@
 <head>
   <title>Returning to App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Poppins font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       background: #f8f9fa;
+      margin: 0;
+      padding: 0;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start; /* align at top */
       align-items: center;
       height: 100vh;
-      margin: 0;
+      flex-direction: column;
     }
 
     .card {
       background: white;
+      margin-top: 50px; /* space from top */
       padding: 30px;
-      border-radius: 14px;
+      border-radius: 16px;
       width: 90%;
       max-width: 400px;
       text-align: center;
@@ -26,22 +33,30 @@
 
     h2 {
       margin-bottom: 10px;
+      font-weight: 600;
     }
 
     p {
       color: #666;
       font-size: 15px;
+      line-height: 1.4;
     }
 
     .btn {
       display: inline-block;
       margin-top: 20px;
-      padding: 12px 18px;
+      padding: 12px 20px;
       background: #4CAF50;
       color: white;
-      border-radius: 8px;
+      border-radius: 24px; /* more rounded for modern look */
       text-decoration: none;
       font-weight: 600;
+      font-size: 15px;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background: #45a049;
     }
 
     .small {
@@ -68,20 +83,19 @@
     const params = new URLSearchParams(window.location.search);
     const txRef = params.get("tx_ref");
 
+    // deep link to app
     const deepLink = "memhrdegfe://payment-return?tx_ref=" + txRef;
 
     // Set button link
     document.getElementById("openAppBtn").href = deepLink;
 
     // Attempt automatic redirect
-  //  window.location.href = deepLink;
+    // window.location.href = deepLink;
   </script>
 
 </body>
 </html>
 
-</body>
-</html>
 
 
 

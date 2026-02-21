@@ -1,30 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8" />
-  <title>Redirecting...</title>
+  <title>Subscription Status</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+      background: #f8f9fa;
+    }
+    .card {
+      background: white;
+      margin: auto;
+      padding: 30px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+    .spinner {
+      margin: 20px auto;
+      width: 40px;
+      height: 40px;
+      border: 5px solid #ddd;
+      border-top: 5px solid #4CAF50;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Processing Payment</h2>
+    <div class="spinner"></div>
+    <p>Verifying your subscription...</p>
+  </div>
 
   <script>
-    // Try to open your Android app
-    window.location.href = "yourapp://payment-return";
+    const params = new URLSearchParams(window.location.search);
+    const txRef = params.get("tx_ref");
 
-    // Optional fallback after 2 seconds
-    setTimeout(function () {
-      document.getElementById("fallback").style.display = "block";
-    }, 2000);
+    setTimeout(() => {
+      window.location.href =
+        "memhrdegfe://payment-return?tx_ref=" + txRef;
+    }, 1500);
   </script>
-</head>
-
-<body style="text-align:center; font-family:sans-serif; margin-top:50px;">
-  <h2>Redirecting to app...</h2>
-  <p>If nothing happens, tap the button below.</p>
-
-  <div id="fallback" style="display:none;">
-    <a href="yourapp://payment-return">
-      <button style="padding:10px 20px; font-size:16px;">
-        Open App
-      </button>
-    </a>
-  </div>
 </body>
 </html>

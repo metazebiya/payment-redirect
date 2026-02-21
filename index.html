@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Subscription Status</title>
+  <title>Returning to App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -19,35 +19,44 @@
       max-width: 400px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.1);
     }
-    .spinner {
-      margin: 20px auto;
-      width: 40px;
-      height: 40px;
-      border: 5px solid #ddd;
-      border-top: 5px solid #4CAF50;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-    @keyframes spin {
-      100% { transform: rotate(360deg); }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 20px;
+      background: #4CAF50;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
+
   <div class="card">
-    <h2>Processing Payment</h2>
-    <div class="spinner"></div>
-    <p>Verifying your subscription...</p>
+    <h2>Payment Received 🎉</h2>
+    <p>We are returning you to the app...</p>
+
+    <a id="openAppBtn" class="btn">Open App</a>
+
+    <p style="margin-top:20px; font-size:14px; color:gray;">
+      If the app doesn’t open automatically, tap the button above.
+    </p>
   </div>
 
   <script>
     const params = new URLSearchParams(window.location.search);
     const txRef = params.get("tx_ref");
 
-    setTimeout(() => {
-      window.location.href =
-        "memhrdegfe://payment-return?tx_ref=" + txRef;
-    }, 1500);
+    const deepLink = "memhrdegfe://payment-return?tx_ref=" + txRef;
+
+    // Set button link
+    document.getElementById("openAppBtn").href = deepLink;
+
+    // Auto open app immediately
+    window.location.href = deepLink;
   </script>
+
 </body>
 </html>
+

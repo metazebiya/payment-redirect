@@ -6,41 +6,61 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      text-align: center;
-      padding-top: 100px;
       background: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
     }
+
     .card {
       background: white;
-      margin: auto;
       padding: 30px;
-      border-radius: 12px;
+      border-radius: 14px;
       width: 90%;
       max-width: 400px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.08);
     }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #666;
+      font-size: 15px;
+    }
+
     .btn {
       display: inline-block;
       margin-top: 20px;
-      padding: 12px 20px;
+      padding: 12px 18px;
       background: #4CAF50;
       color: white;
       border-radius: 8px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+    }
+
+    .small {
+      margin-top: 18px;
+      font-size: 13px;
+      color: #999;
     }
   </style>
 </head>
 <body>
 
   <div class="card">
-    <h2>Payment Received 🎉</h2>
-    <p>We are returning you to the app...</p>
+    <h2>Processing Your Payment</h2>
+    <p>We’re taking you back to the app to confirm your subscription status.</p>
 
     <a id="openAppBtn" class="btn">Open App</a>
 
-    <p style="margin-top:20px; font-size:14px; color:gray;">
-      If the app doesn’t open automatically, tap the button above.
+    <p class="small">
+      If nothing happens, tap the button above.
     </p>
   </div>
 
@@ -53,10 +73,14 @@
     // Set button link
     document.getElementById("openAppBtn").href = deepLink;
 
-    // Auto open app immediately
+    // Attempt automatic redirect
     window.location.href = deepLink;
   </script>
 
 </body>
 </html>
+
+</body>
+</html>
+
 
